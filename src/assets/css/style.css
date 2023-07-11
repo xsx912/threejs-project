@@ -1,0 +1,51 @@
+/* CSS Reset */
+
+/* 全局重置 */
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 设置默认字体和颜色 */
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* 链接样式 */
+a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* 标题样式 */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+/* 列表样式 */
+ul, ol {
+  list-style: none;
+}
+
+/* 表单样式 */
+input, textarea, button {
+  font-family: inherit;
+}
+
+/* 其他常用样式 */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* 可以根据项目需要添加更多的样式 */
+
