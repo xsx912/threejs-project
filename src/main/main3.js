@@ -15,7 +15,7 @@ const material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
 const cube = new THREE.Mesh( geometry, material );
 // 几何体添加到场景中
 scene.add( cube );
-
+console.log(cube);
 // 坐标系添加
 const axesHelper = new THREE.AxesHelper( 5 );
 scene.add( axesHelper );
@@ -30,18 +30,28 @@ document.body.appendChild( renderer.domElement );
 // 控制器控制相机视角
 const controls = new OrbitControls( camera, renderer.domElement );
 
+
+import gsap  from 'gsap';
+console.log(gsap);
+gsap.to(cube.position, { x: 5, duration: 5 , ease: 'power1.inOut' })
+gsap.to(cube.rotation, { x: 5, duration: 5 , ease: 'power1.inOut' })
+
 function animate() {
-    move()
+
     // 渲染相机和场景
     renderer.render( scene, camera );
     // 每一帧都渲染
     requestAnimationFrame( animate );
 }
-function move() {
-    // 控制几何体的移动
-    cube.position.x += 0.01
-    if(cube.position.x >= 5){
-        cube.position.x = 0
+
+function scale(time) {
+    // 控制几何体缩放scale
+    // cube.scale.set(3, 2, 1)
+    // 控制旋转
+    let t = (time / 1000) % 5
+    cube.rotation.x = t * 1
+    if(cube.rotation.x >= 5){
+        cube.rotation.x = 0
     }
 }
 animate()
